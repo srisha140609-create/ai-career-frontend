@@ -33,7 +33,7 @@ async function getCareer() {
   const education = document.getElementById("education").value;
   const language = document.getElementById("language").value;
 
-  const response = await fetch("YOUR_RAILWAY_BACKEND_URL", {
+  const response = await fetch("ai-career-backend-sharu-production.up.railway.app", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
