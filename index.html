@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Career Guidance</title>
+</head>
+<body>
+
+  <h1>AI Career Guidance App 🚀</h1>
+
+  <h3>Select Your Education</h3>
+  <select id="education">
+    <option value="10th">10th</option>
+    <option value="12th">12th</option>
+    <option value="UG">UG</option>
+    <option value="PG">PG</option>
+  </select>
+
+  <h3>Select Language</h3>
+  <select id="language">
+    <option value="English">English</option>
+    <option value="Tamil">Tamil</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="getCareer()">Get Career Suggestion</button>
+
+  <h2 id="result"></h2>
+
+<script>
+async function getCareer() {
+
+  const education = document.getElementById("education").value;
+  const language = document.getElementById("language").value;
+
+  const response = await fetch("YOUR_RAILWAY_BACKEND_URL", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      education: education,
+      language: language
+    })
+  });
+
+  const data = await response.json();
+  document.getElementById("result").innerText = data.reply;
+}
+</script>
+
+</body>
+</html>
